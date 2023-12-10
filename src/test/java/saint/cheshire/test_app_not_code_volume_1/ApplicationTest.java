@@ -1,4 +1,4 @@
-package saint.cheshire.test_app_not_code;
+package saint.cheshire.test_app_not_code_volume_1;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.ActiveProfiles;
-import saint.cheshire.test_app_not_code.data.repository.VerySimpleEntityRepository;
+import saint.cheshire.test_app_not_code_volume_1.data.repository.VerySimpleEntityRepository;
 
 import static io.restassured.http.ContentType.JSON;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;

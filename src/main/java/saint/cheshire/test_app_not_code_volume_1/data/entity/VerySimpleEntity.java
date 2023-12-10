@@ -1,4 +1,4 @@
-package saint.cheshire.test_app_not_code.data.entity;
+package saint.cheshire.test_app_not_code_volume_1.data.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

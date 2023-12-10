@@ -1,8 +1,8 @@
-package saint.cheshire.test_app_not_code;
+package saint.cheshire.test_app_not_code_volume_1;
 
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.Test;
-import saint.cheshire.test_app_not_code.data.entity.VerySimpleEntity;
+import saint.cheshire.test_app_not_code_volume_1.data.entity.VerySimpleEntity;
 
 import java.io.File;
 import java.util.UUID;

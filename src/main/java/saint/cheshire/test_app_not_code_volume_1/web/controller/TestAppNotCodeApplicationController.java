@@ -1,4 +1,4 @@
-package saint.cheshire.test_app_not_code.web.controller;
+package saint.cheshire.test_app_not_code_volume_1.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -8,9 +8,9 @@ import saint.cheshire.specifications.test_app_not_code.v1_0_0.server.api.TestApp
 import saint.cheshire.specifications.test_app_not_code.v1_0_0.server.model.FindRequest;
 import saint.cheshire.specifications.test_app_not_code.v1_0_0.server.model.FindResponse;
 import saint.cheshire.specifications.test_app_not_code.v1_0_0.server.model.SaveRequest;
-import saint.cheshire.test_app_not_code.data.entity.VerySimpleEntity;
-import saint.cheshire.test_app_not_code.data.repository.VerySimpleEntityRepository;
-import saint.cheshire.test_app_not_code.mapper.EntityMapper;
+import saint.cheshire.test_app_not_code_volume_1.data.entity.VerySimpleEntity;
+import saint.cheshire.test_app_not_code_volume_1.data.repository.VerySimpleEntityRepository;
+import saint.cheshire.test_app_not_code_volume_1.mapper.EntityMapper;
 
 import java.util.Optional;
 
