@@ -1,0 +1,142 @@
+openapi: "3.0.3"
+info:
+  title: "API сервиса test-app-not-code"
+  version: "1.0.0"
+servers:
+- url: "http://localhost:8080"
+tags:
+- name: "TestAppNotCodeApplication"
+  description: "Spring boot openapi generation service API"
+paths:
+  /api/v1/save:
+    post:
+      tags:
+      - "TestAppNotCodeApplication"
+      summary: "Описание логики спрятанной за эндпоинтом"
+      operationId: "save"
+      requestBody:
+        $ref: "#/components/requestBodies/SaveRequest"
+      responses:
+        "200":
+          description: "Логика успешно выполнена"
+        "400":
+          description: "Нарушение контракта"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SaveBadRequestError"
+        "500":
+          description: "Какая-то страшная внутренняя ошибка"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SaveInternalServerError"
+  /api/v1/find:
+    post:
+      tags:
+        - "TestAppNotCodeApplication"
+      summary: "Описание логики спрятанной за эндпоинтом"
+      operationId: "find"
+      requestBody:
+        $ref: "#/components/requestBodies/FindRequest"
+      responses:
+        "200":
+          description: "Логика выполнена"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FindResponse'
+        "400":
+          description: "Нарушение контракта"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FindBadRequestError"
+        "500":
+          description: "Какая-то страшная внутренняя ошибка"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FindInternalServerError"
+components:
+  requestBodies:
+    SaveRequest:
+      description: "Тело запроса на выполнение какой-то логики"
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - "id"
+              - "code"
+            type: "object"
+            properties:
+              id:
+                $ref: "#/components/schemas/id"
+              code:
+                $ref: "#/components/schemas/code"
+    FindRequest:
+      description: "Тело запроса на выполнение какой-то логики"
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - "id"
+            type: "object"
+            properties:
+              id:
+                $ref: "#/components/schemas/id"
+  schemas:
+    FindResponse:
+      description: "Тело ответа запроса на выполнение какой-то логики"
+      type: object
+      required:
+        - code
+        - status
+      properties:
+        code:
+          $ref: "#/components/schemas/code"
+        status:
+          $ref: "#/components/schemas/status"
+    id:
+      description: "Какой-нибудь важный идентификатор"
+      type: "string"
+      format: "uuid"
+      example: "e96d3259-1456-4693-979b-dcf67b228ebd"
+    code:
+      description: "Не менее важный код"
+      type: "string"
+      example: "4321"
+    status:
+      description: "Очень важный статус"
+      type: "string"
+      example: "Well done"
+    SaveBadRequestError:
+      description: "Ответ при ошибке"
+      type: "object"
+      properties:
+        errorMessage:
+          $ref: "#/components/schemas/errorMessage"
+    FindBadRequestError:
+      description: "Ответ при ошибке"
+      type: "object"
+      properties:
+        errorMessage:
+          $ref: "#/components/schemas/errorMessage"
+    SaveInternalServerError:
+      description: "Ответ при ошибке"
+      type: "object"
+      properties:
+        errorMessage:
+          $ref: "#/components/schemas/errorMessage"
+    FindInternalServerError:
+      description: "Ответ при ошибке"
+      type: "object"
+      properties:
+        errorMessage:
+          $ref: "#/components/schemas/errorMessage"
+    errorMessage:
+      description: "Описание ошибки при обращении к сервису"
+      type: "string"
+      example: "Сервис временно недоступен"
