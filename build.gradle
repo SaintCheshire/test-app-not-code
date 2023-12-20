@@ -77,7 +77,7 @@ sourceSets {
     }
 }
 
-tasks.register('generate test-app-not-code 1.0.0 server', GenerateTask) {
+tasks.register('generate test-app-not-code-volume-1 1.0.0 server', GenerateTask) {
     generatorName.set("spring")
     inputSpec.set("$projectDir/src/main/resources/api.yaml")
     outputDir.set("$buildDir/generated")
@@ -103,7 +103,7 @@ tasks.register('generate test-app-not-code 1.0.0 server', GenerateTask) {
 
 tasks.register('generate server') {
     dependsOn(
-            'generate test-app-not-code 1.0.0 server',
+            'generate test-app-not-code-volume-1 1.0.0 server',
     )
 }
 

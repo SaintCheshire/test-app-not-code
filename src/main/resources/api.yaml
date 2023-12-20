@@ -1,6 +1,6 @@
 openapi: "3.0.3"
 info:
-  title: "API сервиса test-app-not-code"
+  title: "API сервиса test-app-not-code-volume-1"
   version: "1.0.0"
 servers:
 - url: "http://localhost:8080"

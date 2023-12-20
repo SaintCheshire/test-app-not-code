@@ -1,5 +1,6 @@
 package saint.cheshire.test_app_not_code_volume_1;
 
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -47,7 +48,7 @@ public class FindTest extends ApplicationTest {
                 .post(FIND_ENDPOINT)
                 .then()
                 .statusCode(SC_NOT_FOUND)
-                .extract().body().asString();
+                .assertThat().body(Matchers.isEmptyOrNullString());
     }
 
 }
