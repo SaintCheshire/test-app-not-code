@@ -1,7 +1,3 @@
 spring:
   application:
     name: test app not code
-
-logging:
-  level:
-    saint.cheshire.test_app_not_code_volume_1.web.filter.LoggingFilter: INFO
