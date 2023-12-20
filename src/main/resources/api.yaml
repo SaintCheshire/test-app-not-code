@@ -21,16 +21,8 @@ paths:
           description: "Логика успешно выполнена"
         "400":
           description: "Нарушение контракта"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/SaveBadRequestError"
         "500":
           description: "Какая-то страшная внутренняя ошибка"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/SaveInternalServerError"
   /api/v1/find:
     post:
       tags:
@@ -66,10 +58,10 @@ components:
       content:
         application/json:
           schema:
-            required:
-              - "id"
-              - "code"
             type: "object"
+            required:
+              - id
+              - code
             properties:
               id:
                 $ref: "#/components/schemas/id"

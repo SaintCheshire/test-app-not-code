@@ -10,15 +10,11 @@ import saint.cheshire.specifications.test_app_not_code.v1_0_0.server.model.FindR
 import saint.cheshire.specifications.test_app_not_code.v1_0_0.server.model.SaveRequest;
 import saint.cheshire.test_app_not_code_volume_1.data.entity.VerySimpleEntity;
 import saint.cheshire.test_app_not_code_volume_1.data.repository.VerySimpleEntityRepository;
-import saint.cheshire.test_app_not_code_volume_1.mapper.EntityMapper;
 
 import java.util.Optional;
 
 @Controller
 public class TestAppNotCodeApplicationController extends TestAppNotCodeApplicationApiController {
-
-    @Autowired
-    EntityMapper entityMapper;
 
     @Autowired
     VerySimpleEntityRepository verySimpleEntityRepository;
@@ -29,7 +25,11 @@ public class TestAppNotCodeApplicationController extends TestAppNotCodeApplicati
 
     @Override
     public ResponseEntity<Void> save(SaveRequest saveRequest) {
-        VerySimpleEntity verySimpleEntity = entityMapper.toEntity(saveRequest);
+        VerySimpleEntity verySimpleEntity = VerySimpleEntity.builder()
+                .id(saveRequest.getId())
+                .code(saveRequest.getCode())
+                .build();
+
         verySimpleEntity.setStatus("New");
         verySimpleEntityRepository.save(verySimpleEntity);
 
